@@ -255,7 +255,8 @@ def load_templates(file, output_file=None):
                 logging.info("Preprocessed %d pages", articles)
     if output_file:
         output.close()
-        logging.info("Saved %d templates to '%s'", len(templates), output_file)
+        logging.info("Saved templates to '%s'", output_file)
+        #logging.info("Saved %d templates to '%s'", len(templates), output_file)
 
 
 def process_dump(input_file, template_file, out_file, file_size, file_compress,
@@ -318,7 +319,8 @@ def process_dump(input_file, template_file, out_file, file_size, file_compress,
             input.close()
             input = fileinput.FileInput(input_file, openhook=fileinput.hook_compressed)
         template_load_elapsed = default_timer() - template_load_start
-        logging.info("Loaded %d templates in %.1fs", len(templates), template_load_elapsed)
+        logging.info("Loaded templates in %.1fs", template_load_elapsed)
+        #logging.info("Loaded %d templates in %.1fs", len(templates), template_load_elapsed)
 
     if out_file == '-':
         output = sys.stdout
